@@ -1,0 +1,11 @@
+services:
+  scc-web:
+    build: .
+    image: scc-web:latest
+    container_name: scc-web
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    # If running behind a reverse proxy (e.g. Traefik / Caddy), remove ports
+    # and use labels instead. The app itself has no env vars — scc server URL
+    # is configured by the user in the browser at first launch.
